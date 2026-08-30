@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Julieta & Romeo | Nuestra Boda</title>
+    
+    <!-- Metadatos SEO y Open Graph para compartir en WhatsApp y Redes Sociales -->
+    <meta name="description" content="Acompáñanos a celebrar el enlace matrimonial de Julieta Capuleto & Romeo Montesco. Viernes 27 de Noviembre, 2026.">
+    <meta name="theme-color" content="#FDFBF7">
+    <meta property="og:title" content="Boda Julieta & Romeo — Invitación Oficial">
+    <meta property="og:description" content="Nuestra historia no sigue reglas, simplemente se escribe con amor. Acompáñanos en este día tan especial.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/novios.jpg">
+    
+    <!-- Favicon con Monograma R+J -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23D4AF37'/><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='38' fill='%23FFFFFF' font-weight='bold'>R&amp;J</text></svg>">
+
+    <!-- Tipografías de Alta Costura: Cinzel, Playfair Display, Cormorant Garamond, Montserrat, Pinyon Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Estilos Principales -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Capa de Partículas Táctiles (Anillos Entrelazados) -->
+    <div id="touch-effects-container" aria-hidden="true"></div>
+
+    <!-- PANTALLA 1: SOBRE DIGITAL INTERACTIVO (PORTADA) -->
+    <section id="envelope-screen" class="envelope-screen" aria-label="Sobre de Invitación">
+        <div class="envelope-ambient-glow" aria-hidden="true"></div>
+        <div class="botanical-corner top-left" aria-hidden="true"></div>
+        <div class="botanical-corner bottom-right" aria-hidden="true"></div>
+
+        <div class="envelope-wrapper" id="envelope-wrapper">
+            <!-- Solapa Trasera y Cuerpo del Sobre -->
+            <div class="envelope-back"></div>
+            
+            <!-- Tarjetón Interior que se asoma / extrae -->
+            <div class="envelope-letter" id="envelope-letter">
+                <div class="letter-gold-border">
+                    <span class="letter-monogram">R &amp; J</span>
+                    <p class="letter-intro">Tenemos el honor de invitarle</p>
+                    <h2 class="letter-names">Julieta &amp; Romeo</h2>
+                    <div class="gold-divider-mini"></div>
+                    <p class="letter-date">27 · 11 · 2026</p>
+                </div>
+            </div>
+
+            <!-- Solapas Frontales (Izquierda, Derecha, Abajo) -->
+            <div class="envelope-front-folds">
+                <div class="fold-left"></div>
+                <div class="fold-right"></div>
+                <div class="fold-bottom">
+                    <div class="envelope-invitation-text">
+                        <span class="envelope-families">Capuleto &amp; Montesco</span>
+                        <span class="envelope-action">Te invitan a su Enlace Matrimonial</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solapa Superior que se abre -->
+            <div class="envelope-flap" id="envelope-flap">
+                <div class="flap-liner"></div>
+            </div>
+
+            <!-- Sello de Cera Dorado Interactivo -->
+            <button id="wax-seal-btn" class="wax-seal" aria-label="Abrir Invitación de Boda">
+                <div class="wax-seal-inner">
+                    <div class="wax-seal-border"></div>
+                    <span class="wax-monogram">R+J</span>
+                    <span class="wax-label">ABRIR</span>
+                </div>
+                <div class="seal-glow-pulse" aria-hidden="true"></div>
+            </button>
+        </div>
+
+        <div class="envelope-hint">
+            <span class="hint-sparkle">✨</span>
+            <p>Toca el sello de cera para abrir la invitación</p>
+        </div>
+    </section>
+
+    <!-- REPRODUCTOR DE MÚSICA FLOTANTE -->
+    <aside class="floating-music-bar" id="music-controller" aria-label="Reproductor de música">
+        <audio id="wedding-audio" loop preload="auto">
+            <source src="assets/musica/Vows_Under_the_Chandelier.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+        <button id="music-toggle-btn" class="music-btn" aria-label="Reproducir o pausar música de fondo" title="Música: Vows Under the Chandelier">
+            <div class="vinyl-icon" id="vinyl-icon">
+                <div class="vinyl-grooves"></div>
+                <div class="vinyl-center"></div>
+            </div>
+            <div class="music-details">
+                <span class="music-title">Vows Under the Chandelier</span>
+                <span class="music-status" id="music-status-text">Música de Fondo</span>
+            </div>
+            <div class="audio-waves" id="audio-waves" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </button>
+    </aside>
+
+    <!-- PANTALLA PRINCIPAL: INVITACIÓN WEB DE LUJO -->
+    <main id="invitation-main" class="invitation-main hidden" aria-label="Invitación Principal">
+
+        <!-- HEADER / HERO SECTION -->
+        <header class="hero-section">
+            <div class="hero-texture-overlay"></div>
+            
+            <div class="hero-content reveal-on-scroll">
+                <div class="monogram-badge">
+                    <svg class="botanical-crest" viewBox="0 0 160 80" aria-hidden="true">
+                        <path d="M 10,40 Q 40,10 80,40 Q 120,10 150,40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2,3"/>
+                        <circle cx="80" cy="40" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="hero-monogram">J &amp; R</span>
+                    <svg class="botanical-crest" viewBox="0 0 160 80" aria-hidden="true">
+                        <path d="M 10,40 Q 40,70 80,40 Q 120,70 150,40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2,3"/>
+                        <circle cx="80" cy="40" r="3" fill="currentColor"/>
+                    </svg>
+                </div>
+
+                <p class="hero-eyebrow">NUESTRA BODA</p>
+                <h1 class="hero-names">
+                    <span class="bride-name">Julieta Capuleto</span>
+                    <span class="ampersand">&amp;</span>
+                    <span class="groom-name">Romeo Montesco</span>
+                </h1>
+                
+                <div class="ornament-divider">
+                    <span class="line"></span>
+                    <span class="diamond">◆</span>
+                    <span class="line"></span>
+                </div>
+
+                <p class="hero-date-text">VIERNES · 27 DE NOVIEMBRE · 2026</p>
+                <p class="hero-place-text">San Pedro Garza García, N.L.</p>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <a href="#countdown-section" class="scroll-down-indicator" aria-label="Desplazarse hacia abajo">
+                <span class="scroll-text">Desliza para ver más</span>
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+            </a>
+        </header>
+
+        <!-- SECCIÓN: CUENTA REGRESIVA DE ALTA GAMA -->
+        <section id="countdown-section" class="countdown-section reveal-on-scroll">
+            <div class="container">
+                <div class="section-badge">TIEMPO PARA EL GRAN DÍA</div>
+                <h2 class="section-title">Guardemos la Fecha</h2>
+                
+                <div class="countdown-grid" id="countdown-grid">
+                    <div class="time-card">
+                        <div class="time-number-box">
+                            <span class="time-value" id="days">00</span>
+                        </div>
+                        <span class="time-label">DÍAS</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-card">
+                        <div class="time-number-box">
+                            <span class="time-value" id="hours">00</span>
+                        </div>
+                        <span class="time-label">HORAS</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-card">
+                        <div class="time-number-box">
+                            <span class="time-value" id="minutes">00</span>
+                        </div>
+                        <span class="time-label">MINUTOS</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-card">
+                        <div class="time-number-box">
+                            <span class="time-value" id="seconds">00</span>
+                        </div>
+                        <span class="time-label">SEGUNDOS</span>
+                    </div>
+                </div>
+
+                <!-- Botón Agregar a Calendario -->
+                <div class="calendar-action">
+                    <button id="add-to-calendar-btn" class="btn-luxury-outline" aria-label="Agregar evento a mi calendario">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                            <line x1="12" y1="14" x2="12" y2="18"></line>
+                            <line x1="10" y1="16" x2="14" y2="16"></line>
+                        </svg>
+                        <span>Agregar a mi Calendario</span>
+                    </button>
+                    <div id="calendar-dropdown" class="calendar-dropdown hidden">
+                        <a id="cal-google" target="_blank" rel="noopener noreferrer">Google Calendar</a>
+                        <a id="cal-ics" href="#">Apple / Outlook (.ics)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: FOTO DE LOS NOVIOS & FRASE INSPIRACIONAL -->
+        <section class="couple-portrait-section reveal-on-scroll">
+            <div class="container">
+                <div class="portrait-card">
+                    <!-- Marco Ovalado de Alta Costura con Filigrana Dorada -->
+                    <div class="portrait-frame-wrapper">
+                        <div class="frame-botanical-accent top-accent" aria-hidden="true"></div>
+                        <div class="frame-outer-gold">
+                            <div class="frame-inner-bezel">
+                                <img src="assets/images/novios.jpg" 
+                                     alt="Julieta Capuleto y Romeo Montesco" 
+                                     class="couple-photo"
+                                     onerror="this.src='assets/images/novios.jpeg'">
+                            </div>
+                        </div>
+                        <div class="frame-botanical-accent bottom-accent" aria-hidden="true"></div>
+                    </div>
+
+                    <!-- Frase Inspiracional de los Novios -->
+                    <div class="inspirational-quote-box">
+                        <span class="quote-mark left">“</span>
+                        <blockquote class="inspirational-quote">
+                            Nuestra historia no sigue reglas, simplemente se escribe con amor y la bendición de quienes más amamos.
+                        </blockquote>
+                        <span class="quote-mark right">”</span>
+                        <div class="quote-author">— Julieta &amp; Romeo</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN PROTOCOLARIA: PADRES DE LOS NOVIOS -->
+        <section class="protocol-parents-section reveal-on-scroll">
+            <div class="container">
+                <div class="parents-card">
+                    <p class="parents-intro">Con la bendición de Dios y el amor incondicional de nuestros padres:</p>
+
+                    <div class="parents-grid">
+                        <div class="parents-column">
+                            <span class="parents-role">Padres de la Novia</span>
+                            <div class="gold-line-small"></div>
+                            <h3 class="parent-name">Sr. Capuleto</h3>
+                            <span class="parent-amp">&amp;</span>
+                            <h3 class="parent-name">Sra. Capuleto</h3>
+                        </div>
+
+                        <div class="parents-center-ornament">
+                            <div class="vertical-gold-line"></div>
+                            <div class="center-heart-crest">❦</div>
+                            <div class="vertical-gold-line"></div>
+                        </div>
+
+                        <div class="parents-column">
+                            <span class="parents-role">Padres del Novio</span>
+                            <div class="gold-line-small"></div>
+                            <h3 class="parent-name">Sr. Montesco</h3>
+                            <span class="parent-amp">&amp;</span>
+                            <h3 class="parent-name">Sra. Montesco</h3>
+                        </div>
+                    </div>
+
+                    <p class="parents-invitation-words">
+                        Tenemos el inmenso honor de invitarle a celebrar la unión de nuestras vidas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: ITINERARIO Y DETALLES DEL EVENTO (GRID EDITORIAL) -->
+        <section class="event-details-section reveal-on-scroll" id="detalles">
+            <div class="container">
+                <div class="section-badge">ITINERARIO &amp; DETALLES</div>
+                <h2 class="section-title">Nuestra Celebración</h2>
+                <p class="section-subtitle">Viernes 27 de Noviembre de 2026</p>
+
+                <div class="editorial-grid">
+                    
+                    <!-- Tarjeta 1: Ceremonia Religiosa -->
+                    <article class="luxury-card event-card highlight-card reveal-on-scroll">
+                        <div class="card-corner-ornament top-l"></div>
+                        <div class="card-corner-ornament bottom-r"></div>
+                        <div class="card-icon-container">
+                            <svg class="luxury-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v20M8 7h8"/>
+                                <path d="M18 10l-6-6-6 6v10h12V10z"/>
+                                <path d="M10 22v-6h4v6"/>
+                            </svg>
+                        </div>
+                        <span class="card-time-tag">20:00 HRS</span>
+                        <h3 class="card-title">Ceremonia Religiosa</h3>
+                        <h4 class="card-venue">Parroquia María Reyna de los Ángeles</h4>
+                        <p class="card-address">Av. Roberto Garza Sada 300, Col. Carrizalejo, San Pedro Garza García, N.L.</p>
+                        
+                        <div class="card-actions">
+                            <a href="https://maps.google.com/?q=Parroquia+Maria+Reyna+de+los+Angeles+San+Pedro+Garza+Garcia" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="btn-luxury"
+                               id="btn-mapa-ceremonia">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Ver en Google Maps</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 2: Recepción & Fiesta -->
+                    <article class="luxury-card event-card highlight-card reveal-on-scroll">
+                        <div class="card-corner-ornament top-l"></div>
+                        <div class="card-corner-ornament bottom-r"></div>
+                        <div class="card-icon-container">
+                            <svg class="luxury-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M8 21h8M12 17v4"/>
+                                <path d="M6 3h12l-1.5 8.5a4.5 4.5 0 0 1-9 0L6 3z"/>
+                                <line x1="6" y1="7" x2="18" y2="7"/>
+                            </svg>
+                        </div>
+                        <span class="card-time-tag">21:00 HRS</span>
+                        <h3 class="card-title">Recepción &amp; Fiesta</h3>
+                        <h4 class="card-venue">Quinta Real</h4>
+                        <p class="card-address">Av. Diego Rivera 500, Valle Oriente, San Pedro Garza García, N.L.</p>
+                        
+                        <div class="card-actions">
+                            <a href="https://maps.google.com/?q=Quinta+Real+Monterrey+San+Pedro+Garza+Garcia" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="btn-luxury"
+                               id="btn-mapa-recepcion">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Ver en Google Maps</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 3: Código de Vestimenta -->
+                    <article class="luxury-card protocol-card reveal-on-scroll">
+                        <div class="card-icon-container">
+                            <svg class="luxury-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                <path d="M6 3h12l-2 9 4 9H4l4-9-2-9z"/>
+                                <path d="M12 3v9"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Código de Vestimenta</h3>
+                        <h4 class="card-highlight-gold">Formal / Rigurosa Etiqueta</h4>
+                        <p class="card-description">
+                            Damas: Vestido largo de noche.<br>
+                            Caballeros: Traje oscuro o smoking.
+                        </p>
+                        <div class="dress-code-swatches" aria-label="Sugerencia de paleta">
+                            <span class="swatch" style="background:#1B263B;" title="Azul Noche"></span>
+                            <span class="swatch" style="background:#2D3748;" title="Gris Carbón"></span>
+                            <span class="swatch" style="background:#8A9A86;" title="Verde Salvia"></span>
+                            <span class="swatch" style="background:#C5A059;" title="Dorado Champagne"></span>
+                            <span class="swatch" style="background:#4A1525;" title="Vino Borgoña"></span>
+                        </div>
+                        <span class="dress-code-note">Agradecemos reservar el color blanco/marfil para la novia.</span>
+                    </article>
+
+                    <!-- Tarjeta 4: Protocolo de Asistencia (No Niños) -->
+                    <article class="luxury-card protocol-card special-protocol reveal-on-scroll">
+                        <div class="card-icon-container">
+                            <svg class="luxury-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Protocolo de Asistencia</h3>
+                        <div class="adults-badge">
+                            <span class="badge-icon">✨</span>
+                            <span class="badge-text">Evento de Adultos / No Niños</span>
+                        </div>
+                        <p class="card-description protocol-cordial-text">
+                            Amamos a sus pequeños, pero deseamos que esta noche sea un momento de descanso y fiesta exclusiva para los grandes. Agradecemos profundamente su comprensión y apoyo.
+                        </p>
+                    </article>
+
+                    <!-- Tarjeta 5: Mesa de Regalos (Lluvia de Sobres) -->
+                    <article class="luxury-card protocol-card gift-card reveal-on-scroll">
+                        <div class="card-icon-container">
+                            <svg class="luxury-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Mesa de Regalos</h3>
+                        <h4 class="card-highlight-gold">Lluvia de Sobres</h4>
+                        <p class="card-description">
+                            Su presencia es nuestro mayor regalo. Si desean tener un detalle con nosotros, dispondremos de un baúl para sobres en la recepción para ayudarnos a comenzar nuestro nuevo hogar.
+                        </p>
+                        <div class="envelope-symbol">✉ ❦ ✉</div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: CONFIRMACIÓN DE ASISTENCIA (RSVP INTERACTIVO) -->
+        <section class="rsvp-section reveal-on-scroll" id="rsvp">
+            <div class="container">
+                <div class="rsvp-card">
+                    <div class="rsvp-header">
+                        <span class="section-badge">R.S.V.P.</span>
+                        <h2 class="section-title">Confirmación de Asistencia</h2>
+                        <div class="gold-divider-mini"></div>
+                        <p class="rsvp-deadline-text">
+                            Por favor, confirma tu asistencia <strong>antes del 10 de Noviembre, 2026</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Formulario Interactivo RSVP -->
+                    <form id="rsvp-form" class="rsvp-form" onsubmit="return false;">
+                        
+                        <div class="form-group">
+                            <label for="guest-name" class="form-label">Nombre y Apellido del Invitado / Familia:</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="guest-name" class="form-input" placeholder="Ej. Familia Garza o Juan Pérez" required>
+                                <span class="input-focus-border"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">¿Nos acompañarás en nuestro gran día?</label>
+                            <div class="radio-options-grid">
+                                <label class="radio-card">
+                                    <input type="radio" name="attendance" value="si" checked>
+                                    <div class="radio-card-content">
+                                        <span class="radio-indicator"></span>
+                                        <span class="radio-text">¡Sí, con mucho gusto asistiré! 🎉</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="attendance" value="no">
+                                    <div class="radio-card-content">
+                                        <span class="radio-indicator"></span>
+                                        <span class="radio-text">Lamentablemente no podré asistir 🤍</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="dietary-section">
+                            <label for="dietary-preferences" class="form-label">
+                                Restricciones o Preferencias Alimentarias:
+                                <span class="label-optional">(Para consentirte en la cena)</span>
+                            </label>
+                            <select id="dietary-preferences" class="form-select">
+                                <option value="Ninguna (Menú Tradicional)">Sin restricciones alimentarias</option>
+                                <option value="Opción Vegetariana">Opción Vegetariana</option>
+                                <option value="Opción Vegana">Opción Vegana</option>
+                                <option value="Opción Sin Gluten / Celíaco">Sin Gluten (Celíaco)</option>
+                                <option value="Alergia a Mariscos / Frutos Secos">Alergia a Mariscos / Frutos Secos</option>
+                                <option value="Otra restricción específica">Otra restricción específica</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group hidden" id="custom-dietary-group">
+                            <label for="custom-dietary-text" class="form-label">Especifica tu alergia o preferencia:</label>
+                            <input type="text" id="custom-dietary-text" class="form-input" placeholder="Ej. Alergia severa al cacahuate / lactosa...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rsvp-notes" class="form-label">Mensaje o dedicatoria para los novios (Opcional):</label>
+                            <textarea id="rsvp-notes" class="form-textarea" rows="3" placeholder="¡Escribe unas palabras de felicitación para Julieta y Romeo!"></textarea>
+                        </div>
+
+                        <!-- Botón Principal WhatsApp -->
+                        <div class="rsvp-submit-container">
+                            <button type="button" id="whatsapp-rsvp-btn" class="btn-whatsapp-luxury">
+                                <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                                </svg>
+                                <span>Confirmar por WhatsApp</span>
+                            </button>
+                            <p class="rsvp-phone-notice">
+                                Enlace directo al <strong>+52 81 1015 5686</strong> con tu confirmación lista.
+                            </p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER ELEGANTE -->
+        <footer class="luxury-footer">
+            <div class="footer-texture"></div>
+            <div class="container">
+                <div class="footer-monogram">J &amp; R</div>
+                <p class="footer-thanks">"El amor no se mira con los ojos, sino con el alma."</p>
+                <div class="gold-divider-mini"></div>
+                <p class="footer-couple">Julieta Capuleto &amp; Romeo Montesco</p>
+                <p class="footer-date">27 · Noviembre · 2026</p>
+                <p class="footer-closing">¡Esperamos celebrar este gran día contigo!</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Script Principal -->
+    <script src="script.js"></script>
+</body>
+</html>
