@@ -47,6 +47,7 @@
                     <h2 class="letter-names">Julieta &amp; Romeo</h2>
                     <div class="gold-divider-mini"></div>
                     <p class="letter-date">27 · 11 · 2026</p>
+                    <div class="letter-passes-badge">✦ Invitación para 2 Personas ✦</div>
                 </div>
             </div>
 
@@ -140,6 +141,12 @@
 
                 <p class="hero-date-text">VIERNES · 27 DE NOVIEMBRE · 2026</p>
                 <p class="hero-place-text">San Pedro Garza García, N.L.</p>
+                
+                <div class="hero-passes-pill">
+                    <span class="pill-sparkle">✦</span>
+                    <span>Pase Reservado para 2 Personas</span>
+                    <span class="pill-sparkle">✦</span>
+                </div>
             </div>
 
             <!-- Scroll Indicator -->
@@ -391,7 +398,27 @@
                         </p>
                     </article>
 
-                    <!-- Tarjeta 5: Mesa de Regalos (Lluvia de Sobres) -->
+                    <!-- Tarjeta 5: Pases Reservados (2 Personas) -->
+                    <article class="luxury-card protocol-card passes-card reveal-on-scroll">
+                        <div class="card-icon-container">
+                            <svg class="luxury-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2z"/>
+                                <line x1="13" y1="5" x2="13" y2="7"/>
+                                <line x1="13" y1="11" x2="13" y2="13"/>
+                                <line x1="13" y1="17" x2="13" y2="19"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Pases de Asistencia</h3>
+                        <div class="passes-pill-badge">
+                            <span class="passes-num">2</span>
+                            <span class="passes-text">LUGARES RESERVADOS</span>
+                        </div>
+                        <p class="card-description">
+                            Con mucho cariño hemos reservado <strong>2 lugares</strong> en su honor para compartir y celebrar juntos esta mágica velada.
+                        </p>
+                    </article>
+
+                    <!-- Tarjeta 6: Mesa de Regalos (Lluvia de Sobres) -->
                     <article class="luxury-card protocol-card gift-card reveal-on-scroll">
                         <div class="card-icon-container">
                             <svg class="luxury-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -418,6 +445,7 @@
                     <div class="rsvp-header">
                         <span class="section-badge">R.S.V.P.</span>
                         <h2 class="section-title">Confirmación de Asistencia</h2>
+                        <div class="rsvp-passes-tag">🎟️ Invitación válida para <strong>2 Personas</strong></div>
                         <div class="gold-divider-mini"></div>
                         <p class="rsvp-deadline-text">
                             Por favor, confirma tu asistencia <strong>antes del 10 de Noviembre, 2026</strong>.
@@ -453,6 +481,17 @@
                                     </div>
                                 </label>
                             </div>
+                        </div>
+
+                        <div class="form-group" id="passes-confirmed-group">
+                            <label for="passes-confirmed" class="form-label">
+                                Número de Lugares a Confirmar:
+                                <span class="label-optional">(Máximo 2 Lugares)</span>
+                            </label>
+                            <select id="passes-confirmed" class="form-select">
+                                <option value="2 Lugares (Pase Completo)">2 Lugares (Pase Completo)</option>
+                                <option value="1 Lugar">1 Lugar</option>
+                            </select>
                         </div>
 
                         <div class="form-group" id="dietary-section">

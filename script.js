@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Formulario RSVP
     const guestNameInput = document.getElementById('guest-name');
+    const passesConfirmedSelect = document.getElementById('passes-confirmed');
     const dietarySelect = document.getElementById('dietary-preferences');
     const customDietaryGroup = document.getElementById('custom-dietary-group');
     const customDietaryText = document.getElementById('custom-dietary-text');
@@ -350,6 +351,9 @@ END:VCALENDAR`;
                 dietaryInfo = customDietaryText.value.trim();
             }
 
+            // Pases confirmados
+            const confirmedPasses = passesConfirmedSelect ? passesConfirmedSelect.value : '2 Lugares (Pase Completo)';
+
             // Mensaje opcional
             const note = rsvpNotes.value.trim();
 
@@ -358,6 +362,7 @@ END:VCALENDAR`;
             if (willAttend) {
                 message = `¡Hola! Confirmo mi asistencia a la boda de Julieta y Romeo. ✨\n\n` +
                           `👤 *Invitado(s):* ${guestName}\n` +
+                          `🎟️ *Pases Confirmados:* ${confirmedPasses} (de 2 reservados)\n` +
                           `🍽️ *Mis restricciones o preferencias alimentarias son:* ${dietaryInfo}\n`;
                 if (note) {
                     message += `💌 *Dedicatoria:* ${note}\n`;
