@@ -56,13 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isEnvelopeOpened) return;
         isEnvelopeOpened = true;
 
-        // Animar el sobre
+        // Añadir clases de apertura al sobre y contenedor
+        envelopeScreen.classList.add('opening');
         envelopeWrapper.classList.add('open');
 
-        // Reproducir música automáticamente al primer gesto de interacción
+        // Iniciar música de fondo con fade in progresivo
         playBackgroundMusic();
 
-        // Tras la animación del sobre, revelar la invitación principal
+        // Dar suficiente tiempo (3.2s) para apreciar la apertura de la solapa 3D y la salida del tarjetón
         setTimeout(() => {
             envelopeScreen.classList.add('opened');
             invitationMain.classList.remove('hidden');
@@ -72,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Iniciar observador de scroll para animaciones
             initScrollObserver();
-        }, 900);
+        }, 3200);
     }
 
     if (waxSealBtn) {

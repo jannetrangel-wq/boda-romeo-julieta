@@ -173,7 +173,7 @@ button, input, select, textarea {
     justify-content: center;
     padding: 1.5rem;
     overflow: hidden;
-    transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.9s;
+    transition: opacity 1.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.3s;
 }
 
 .envelope-screen.opened {
@@ -252,7 +252,7 @@ button, input, select, textarea {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.8s cubic-bezier(0.34, 1.4, 0.64, 1);
+    transition: transform 1.5s 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 1.5s 0.5s ease;
     z-index: 2;
 }
 
@@ -414,7 +414,7 @@ button, input, select, textarea {
     border-width: min(36vw, 160px) min(46vw, 210px) 0 min(46vw, 210px);
     border-color: #E2D9C7 transparent transparent transparent;
     transform-origin: top center;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 4;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
 }
@@ -499,22 +499,24 @@ button, input, select, textarea {
     100% { transform: scale(1); opacity: 0; }
 }
 
-/* Animación de apertura del sobre */
+/* Animación de apertura del sobre con tiempos elegantes */
 .envelope-wrapper.open .envelope-flap {
     transform: rotateX(-180deg);
     z-index: 1;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .envelope-wrapper.open .wax-seal {
     opacity: 0;
     transform: translate(-50%, -20%) scale(1.4);
     pointer-events: none;
-    transition: all 0.4s ease-out;
+    transition: all 0.7s ease-out;
 }
 
 .envelope-wrapper.open .envelope-letter {
-    transform: translateY(-90px);
-    z-index: 4;
+    transform: translateY(-135px) scale(1.04);
+    box-shadow: 0 20px 45px rgba(58, 48, 38, 0.25);
+    z-index: 5;
 }
 
 /* Indicación inferior */
@@ -528,6 +530,13 @@ button, input, select, textarea {
     letter-spacing: 1px;
     color: var(--text-secondary);
     animation: floatHint 2.5s ease-in-out infinite;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.envelope-screen.opening .envelope-hint {
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
 }
 
 @keyframes floatHint {
